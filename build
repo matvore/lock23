@@ -1,8 +1,35 @@
 #!/bin/sh
 
 cd `dirname $0`
-gcc -I libbtc-master/include -o timelock		\
+gcc	-I libbtc-master/include 			\
+	-I libbtc-master/src/secp256k1			\
+	-o timelock					\
+	-D ECMULT_WINDOW_SIZE=15			\
+	-D ECMULT_GEN_PREC_BITS=4			\
+	-D RANDOM_DEVICE=\"/dev/random\"		\
+	-D ENABLE_MODULE_RECOVERY=1			\
 	timelock.c					\
+	libbtc-master/src/base58.c			\
 	libbtc-master/src/trezor-crypto/sha2.c		\
 	libbtc-master/src/trezor-crypto/memzero.c	\
+	libbtc-master/src/chainparams.c			\
+	libbtc-master/src/ecc_key.c			\
+	libbtc-master/src/ecc_libsecp256k1.c		\
+	libbtc-master/src/memory.c			\
+	libbtc-master/src/secp256k1/src/secp256k1.c	\
+	libbtc-master/src/random.c			\
+	libbtc-master/src/trezor-crypto/base58.c	\
+	libbtc-master/src/trezor-crypto/segwit_addr.c	\
+	libbtc-master/src/ripemd160.c			\
+	libbtc-master/src/utils.c			\
+	libbtc-master/src/cstr.c			\
+	libbtc-master/src/script.c			\
+	libbtc-master/src/trezor-crypto/hasher.c	\
+	libbtc-master/src/trezor-crypto/ripemd160.c	\
+	libbtc-master/src/serialize.c			\
+	libbtc-master/src/vector.c			\
+	libbtc-master/src/trezor-crypto/blake256.c	\
+	libbtc-master/src/trezor-crypto/sha3.c		\
+	libbtc-master/src/trezor-crypto/groestl.c	\
+	libbtc-master/src/trezor-crypto/blake2b.c	\
 	-lm
