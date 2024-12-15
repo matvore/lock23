@@ -1,4 +1,8 @@
 #!/bin/sh
 
 cd `dirname $0`
-gcc -o timelock timelock.c
+gcc -I libbtc-master/include -o timelock		\
+	timelock.c					\
+	libbtc-master/src/trezor-crypto/sha2.c		\
+	libbtc-master/src/trezor-crypto/memzero.c	\
+	-lm
