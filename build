@@ -7,29 +7,29 @@ cd `dirname $0`
 
 csources="
 	timelock.c
-	libbtc-master/src/base58.c
-	libbtc-master/src/trezor-crypto/sha2.c
-	libbtc-master/src/trezor-crypto/memzero.c
-	libbtc-master/src/chainparams.c
-	libbtc-master/src/ecc_key.c
-	libbtc-master/src/ecc_libsecp256k1.c
-	libbtc-master/src/memory.c
-	libbtc-master/src/secp256k1/src/secp256k1.c
-	libbtc-master/src/random.c
-	libbtc-master/src/trezor-crypto/base58.c
-	libbtc-master/src/trezor-crypto/segwit_addr.c
-	libbtc-master/src/ripemd160.c
-	libbtc-master/src/utils.c
-	libbtc-master/src/cstr.c
-	libbtc-master/src/script.c
-	libbtc-master/src/trezor-crypto/hasher.c
-	libbtc-master/src/trezor-crypto/ripemd160.c
-	libbtc-master/src/serialize.c
-	libbtc-master/src/vector.c
-	libbtc-master/src/trezor-crypto/blake256.c
-	libbtc-master/src/trezor-crypto/sha3.c
-	libbtc-master/src/trezor-crypto/groestl.c
-	libbtc-master/src/trezor-crypto/blake2b.c
+	third_party/libbtc/src/base58.c
+	third_party/libbtc/src/trezor-crypto/sha2.c
+	third_party/libbtc/src/trezor-crypto/memzero.c
+	third_party/libbtc/src/chainparams.c
+	third_party/libbtc/src/ecc_key.c
+	third_party/libbtc/src/ecc_libsecp256k1.c
+	third_party/libbtc/src/memory.c
+	third_party/libbtc/src/secp256k1/src/secp256k1.c
+	third_party/libbtc/src/random.c
+	third_party/libbtc/src/trezor-crypto/base58.c
+	third_party/libbtc/src/trezor-crypto/segwit_addr.c
+	third_party/libbtc/src/ripemd160.c
+	third_party/libbtc/src/utils.c
+	third_party/libbtc/src/cstr.c
+	third_party/libbtc/src/script.c
+	third_party/libbtc/src/trezor-crypto/hasher.c
+	third_party/libbtc/src/trezor-crypto/ripemd160.c
+	third_party/libbtc/src/serialize.c
+	third_party/libbtc/src/vector.c
+	third_party/libbtc/src/trezor-crypto/blake256.c
+	third_party/libbtc/src/trezor-crypto/sha3.c
+	third_party/libbtc/src/trezor-crypto/groestl.c
+	third_party/libbtc/src/trezor-crypto/blake2b.c
 "
 
 (
@@ -39,8 +39,8 @@ find . -name '*.h'
 
 $ct --format=1 `cat /tmp/tagfiles.$$`
 
-gcc	-I libbtc-master/include 			\
-	-I libbtc-master/src/secp256k1			\
+gcc	-I third_party/libbtc/include 			\
+	-I third_party/libbtc/src/secp256k1			\
 	-o timelock					\
 	-D ECMULT_WINDOW_SIZE=15			\
 	-D ECMULT_GEN_PREC_BITS=4			\
