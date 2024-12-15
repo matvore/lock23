@@ -32,7 +32,7 @@
 LIBBTC_BEGIN_DECL
 
 //!init static ecc context
-LIBBTC_API void btc_ecc_start(void);
+LIBBTC_API btc_bool btc_ecc_start(void);
 
 //!destroys the static ecc context
 LIBBTC_API void btc_ecc_stop(void);
