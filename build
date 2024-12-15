@@ -32,12 +32,14 @@ csources="
 	third_party/libbtc/src/trezor-crypto/blake2b.c
 "
 
-(
-echo $csources
-find . -name '*.h'
-) > /tmp/tagfiles.$$
+if test -n "$ct"; then
+	(
+	echo $csources
+	find . -name '*.h'
+	) > /tmp/tagfiles.$$
 
-$ct --format=1 `cat /tmp/tagfiles.$$`
+	$ct --format=1 `cat /tmp/tagfiles.$$`
+fi
 
 gcc	-I third_party/libbtc/include 			\
 	-I third_party/libbtc/src/secp256k1			\
